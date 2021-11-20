@@ -17,36 +17,42 @@ function computerPlay() {
 function gameRound(playerSelection, computerSelection) {
     if (playerSelection === "rock") {
         if (computerSelection === "rock") {
-            return "Its a Draw.";
+            console.log("Its a Draw.");
         }
         else if (computerSelection === "paper") {
-            return "You Lose. Paper beats Rock";
+            console.log("You Lose. Paper beats Rock");
+            return computerScore++;
         }
         else if (computerSelection === "scissor") {
-            return "You Win. Rock beats Scissor";
+            console.log("You Win. Rock beats Scissor");
+            return playerScore++;
         }
     }
 
     else if (playerSelection === "paper") {
         if (computerSelection === "rock") {
-            return "You Win. Paper beats Rock";
+            console.log("You Win. Paper beats Rock");
+            return playerScore++;
         }
         else if (computerSelection === "paper") {
-            return "Its a Draw.";
+            console.log("Its a Draw.");
         }
         else if (computerSelection === "scissor") {
-            return "You Lose. Scissor beats Paper";
+            console.log("You Lose. Scissor beats Paper");
+            return computerScore++;
         }
     }
     else if (playerSelection === "scissor") {
         if (computerSelection === "rock") {
-            return "You Lose. Rock beats Scissor";
+            console.log("You Lose. Rock beats Scissor");
+            return computerScore++;
         }
         else if (computerSelection === "paper") {
-            return "You Win. Scissor beats Paper";
+            console.log("You Win. Scissor beats Paper");
+            return playerScore++;
         }
         else if (computerSelection === "scissor") {
-            return "Its a Draw.";
+            console.log("Its a Draw.");
         }
     }
 }
@@ -54,11 +60,18 @@ function gameRound(playerSelection, computerSelection) {
 function playerSelection() {
     let playerPick = window.prompt("Please pick Rock, Paper or Scissor.", "rock");
     return playerPick.toLowerCase();
-
 }
 
-const playerPick = playerSelection();
-const computerPick = computerPlay();
-console.log(computerPick);
-console.log(playerPick);
-console.log(gameRound(playerPick, computerPick));
+function game() {
+    for (i = 1; i < 5; i++) {
+        let playerChoice = playerSelection();
+        let computerChoice = computerPlay();
+        gameRound(playerChoice, computerChoice);
+        console.log(`Player Score is ${playerScore}`);
+        console.log(`Computer Score is ${computerScore}`);
+
+    }
+}
+let playerScore = 0;
+let computerScore = 0;
+game();

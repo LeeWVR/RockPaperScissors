@@ -17,42 +17,42 @@ function computerPlay() {
 function gameRound(playerSelection, computerSelection) {
     if (playerSelection === "rock") {
         if (computerSelection === "rock") {
-            result.innerHTML = "Its a Draw.";
+            result.textContent = "Its a Draw.";
         }
         else if (computerSelection === "paper") {
-            result.innerHTML = "You Lose. Paper beats Rock";
+            result.textContent = "You Lose. Paper beats Rock";
             return computerScore++;
         }
         else if (computerSelection === "scissor") {
-            result.innerHTML = "You Win. Rock beats Scissor";
+            result.textContent = "You Win. Rock beats Scissor";
             return playerScore++;
         }
     }
 
     else if (playerSelection === "paper") {
         if (computerSelection === "rock") {
-            result.innerHTML = "You Win. Paper beats Rock";
+            result.textContent = "You Win. Paper beats Rock";
             return playerScore++;
         }
         else if (computerSelection === "paper") {
-            result.innerHTML = "Its a Draw.";
+            result.textContent = "Its a Draw.";
         }
         else if (computerSelection === "scissor") {
-            result.innerHTML = "You Lose. Scissor beats Paper";
+            result.textContent = "You Lose. Scissor beats Paper";
             return computerScore++;
         }
     }
     else if (playerSelection === "scissor") {
         if (computerSelection === "rock") {
-            result.innerHTML = "You Lose. Rock beats Scissor";
+            result.textContent = "You Lose. Rock beats Scissor";
             return computerScore++;
         }
         else if (computerSelection === "paper") {
-            result.innerHTML = "You Win. Scissor beats Paper";
+            result.textContent = "You Win. Scissor beats Paper";
             return playerScore++;
         }
         else if (computerSelection === "scissor") {
-            result.innerHTML = "Its a Draw.";
+            result.textContent = "Its a Draw.";
         }
     }
 }
@@ -84,17 +84,17 @@ scissorBtn.addEventListener("click", () => {
 function game(choice) {
         let playerChoice = choice;
         let computerChoice = computerPlay();
-        player.innerHTML = `You chose: ${playerChoice}`;
-        cpu.innerHTML = `Computer chose: ${computerChoice}`;
+        player.textContent = `You chose: ${playerChoice}`;
+        cpu.textContent = `Computer chose: ${computerChoice}`;
         gameRound(playerChoice, computerChoice);
-        score.innerHTML = `You: ${playerScore}  Computer: ${computerScore}`;
+        score.textContent = `You: ${playerScore}  Computer: ${computerScore}`;
         console.log(`Player Score is ${playerScore}`);
         console.log(`Computer Score is ${computerScore}`);
         if (playerScore == 5) {
-            score.innerHTML = "YOU WIN";
+            score.textContent = "YOU WIN";
         }
         else if (computerScore == 5) {
-            score.innerHTML = "YOU LOSE";
+            score.textContent = "YOU LOSE";
         }
 }  
 
